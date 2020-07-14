@@ -1,5 +1,3 @@
-// src/routes/index.ts
-
 import { Router } from 'express';
 import appointmentsRouter from './appointments.routes';
 
