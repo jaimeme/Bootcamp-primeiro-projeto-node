@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { startOfHour } from 'date-fns';
 import { getCustomRepository } from 'typeorm';
 
@@ -5,12 +6,15 @@ import Appointment from '../models/Appointment';
 import AppointmentsRepository from '../repositories/AppointmentsRepository';
 
 interface RequestDTO {
-    provider: string;
+    provider_id: string;
     date: Date;
 }
 
 class CreateAppointmentService {
-    public async execute({ date, provider }: RequestDTO): Promise<Appointment> {
+    public async execute({
+        date,
+        provider_id,
+    }: RequestDTO): Promise<Appointment> {
         const appointmentsRepository = getCustomRepository(
             AppointmentsRepository,
         );
@@ -22,7 +26,7 @@ class CreateAppointmentService {
             throw Error('this appointment is already booked');
         }
         const appointment = appointmentsRepository.create({
-            provider,
+            provider_id,
             date: appointmentDate,
         });
 
