@@ -36,7 +36,3 @@ export default function ensureAuthenticated(
         throw new AppError('Invalid JWT token', 401);
     }
 }
-// Global Exception Handler
-// é um middleware que vai identificar todos os erros que vem da nossa aplicação
-// Primeiramente iremos tirar todos os try catchs das rotas
-// vamos criar um app.use() dentro de server.ts
